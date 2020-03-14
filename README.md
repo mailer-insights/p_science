@@ -25,13 +25,8 @@ pip install -r requirements
 ```
 
 
-<<<<<<< HEAD
 ### 3) (Optional) Setting up Jupter Notebook to use Virtual Environment Kernel
-=======
-###3) (Optional) Setting up Jupter Notebook to use Virtual Environment Kernel
 #### If you want to see my jupyter notebook and thought process
->>>>>>> b438f7bdc90a094b23362b7c3f5c2e6a0c161eb7
-
 ```
 python -m ipykernel install --name=analysis
 jupyter notebook
