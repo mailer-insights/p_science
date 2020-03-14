@@ -26,6 +26,7 @@ pip install -r requirements
 
 
 ###3) (Optional) Setting up Jupter Notebook to use Virtual Environment Kernel
+#### If you want to see my jupyter notebook and thought process
 
 ```
 python -m ipykernel install --name=analysis
@@ -38,3 +39,8 @@ jupyter notebook
 ```
 python sales.py
 ```
+
+## Results
+
+Both CSV and interactive plots will appear in the results folder
+If running into JVM errors related to the pdf scraper see #1 in the dependency step
