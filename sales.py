@@ -26,7 +26,7 @@ class Sales:
         return df
 
     def get_total_sales(self):
-        return self.df['payment_usd'].sum()
+        self.df['payment_usd'].sum().to_csv('results/total_sales.csv')
 
     def get_sales_by_month(self):
         df_sales_by_month = self.df.groupby(['yr', 'month'])['payment_usd'].sum()
@@ -42,6 +42,7 @@ class Sales:
         fig = line_plot(x, y, legend, title, x_label, y_label)
         fig.write_html('results/fig1_monthly_revenue.html')
         fig.show()
+        monthly_sales.to_csv('results/monthly_sales.csv', index=False)
 
     def get_sales_by_zip(self):
         df = self.df
@@ -66,6 +67,8 @@ class Sales:
         fig = pie_plot(labels, values, title)
         fig.show()
         fig.write_html('results/fig3_Bottom_10_Revenue_by_zip.html')
+
+        df_zip_sales.to_csv("results/Sales_by_zip.csv", index=False)
 
     def get_revenue_by_teaching(self, teach_hosp_url):
 
@@ -121,6 +124,8 @@ class Sales:
         fig = pie_plot(labels, values, title)
         fig.show()
         fig.write_html('results/fig4_Revenue_by_Teaching_vs_Non_Teach_Inst.html')
+
+        df_teaching_schools[['category_teaching', 'payment_usd']].to_csv('results/Rev_by_teaching_inst.csv', index=False)
 
     @staticmethod
     def trim_zip(zip):
