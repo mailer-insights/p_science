@@ -1,4 +1,5 @@
 import calendar
+import csv
 
 import pandas as pd
 import requests
@@ -26,7 +27,10 @@ class Sales:
         return df
 
     def get_total_sales(self):
-        self.df['payment_usd'].sum().to_csv('results/total_sales.csv')
+        total_rev = self.df['payment_usd'].sum()
+        with open('results/total_rev.csv', "w") as file:
+            writer = csv.writer(file)
+            writer.writerow([total_rev])
 
     def get_sales_by_month(self):
         df_sales_by_month = self.df.groupby(['yr', 'month'])['payment_usd'].sum()
